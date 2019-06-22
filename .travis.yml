@@ -1,0 +1,10 @@
+sudo: required # supper level permission
+  2 services:
+  3   - docker # travis will figure out we need a docker ready to go
+  4 
+  5 before_install:
+  6   - docker build -t hhsu15/frontend -f Dockerfile.dev .
+  7 
+  8 # run coverage test
+  9 script:
+ 10   - docker run hhsu15/frontend npm run test -- --coverage
