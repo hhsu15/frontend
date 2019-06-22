@@ -2,6 +2,6 @@ sudo: required
 services:
   - docker
 
-before-install:
+before_install:
   - docker build -t hhsu15/frontend -f Dockerfile.dev .
 
