@@ -5,5 +5,3 @@ services:
 before-install:
   - docker build -t hhsu15/frontend -f Dockerfile.dev .
 
-script:
-  - docker run hhsu15/frontend npm run test -- --coverage
