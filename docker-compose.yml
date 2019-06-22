@@ -1,0 +1,20 @@
+version: '3'
+services:  # by using docker-compose, it automatically creates a network for the services 
+  react-web:  # service called redis-server
+    build:
+    # specify the directory and file name 
+      context: . # look in current directory 
+      dockerfile: Dockerfile.dev  # and this is the Dockfile that you should use
+    ports:
+        - "3000:3000"  # "-" in yml file specifies an array so you can technically specify multiple ports
+    volumes:
+      - /app/node_modules
+      - .:/app
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"] # this is the override command to the Dockerfile, remember in the Dockerfile.dev we have ["npm", "run", "start"]
