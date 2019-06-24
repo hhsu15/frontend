@@ -8,7 +8,7 @@ before_install:
 script:
   - docker run hhsu15/frontend npm run test -- --coverage
 
-# deploy service to AWS Elasticbeanstalk
+# deploy service to AWS Elastic Beanstalk
 # providers are already known by Travis
 # find the region from your aws instance url
 # bucket name will be located in the S3
